@@ -1,0 +1,22 @@
+services:
+  devcontainer:
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    build:
+      context: ../..
+      dockerfile: .devcontainer/x86-64_ubuntu24.04/Dockerfile
+      args:
+        USER_UID: ${UID:-1000}
+    user: developer
+    volumes:
+      # workspace
+      - ../..:/home/developer/Rust-Guide
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    network_mode: host
