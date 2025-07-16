@@ -9,6 +9,8 @@
 				"marlongerson.jetbrains-icons",
 				"ms-vscode-remote.remote-containers",
 				"ms-vscode-remote.remote-ssh",
+				"rust-lang.rust-analyzer",
+				"yzhang.markdown-all-in-one"
 			],
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "zsh",

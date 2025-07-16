@@ -13,36 +13,15 @@ Explore the `examples` directory for **interactive Rust** code examples, easily 
 There is **more content incoming** so the categories will **not be visible here** until it is completed.    
 Want to see what topics are in todo? See the **index per category**.
 
-## Rust & Tooling
+## Introduction
 
-- Todo
-
-## Containers
-
-- Todo
-
-## Strings
-
-- Todo
-
-## Functions
-
-- Todo
-
-## Object Oriented Programming (OOP)
-
-- Todo
-
-## Memory Management
-
-- Todo
-
-## Concurrency
-
-- Todo
+- [Introduction To Rust](./guide/introduction.md)
+- [Creating Your First Project](./guide/first_project.md)
 
 ## References 📍
 
-### General
+### Github Repositories
 
-- Todo
+- [Rust-lang: Rust Book](https://github.com/rust-lang/book)
+- [Google: Comprehensive Rust](https://github.com/google/comprehensive-rust)
+- [Hunterdii: 30-Days-Of-Rust](https://github.com/Hunterdii/30-Days-Of-Rust)
