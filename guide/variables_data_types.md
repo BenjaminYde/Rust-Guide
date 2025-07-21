@@ -259,3 +259,93 @@ fn main() {
 - When the type is clear from the context of how the variable is used.
 
 Sometimes, even if inference is possible, an explicit annotation can make the code clearer for human readers.
+
+### Constants
+
+Constants are values that are locked in for the entire life of the program. They aren't just immutable; they are truly constant.
+
+You declare them with the `const` keyword.
+
+```rust
+const MY_COOL_CONST: u32 = 3; // Note the uppercase convention for the name.
+
+fn main() {
+    println!("The value is {}.", MY_COOL_CONST);
+}
+```
+
+#### Why Use `const` When `let` is Already Immutable?
+
+The difference is not about mutability, but about **when the value is determined**.
+
+- A `let` variable's value, even if immutable, can be the result of a calculation, a function call, or anything else that is determined at runtime (when the program is running).
+- A `const` value must be known at compile time (before the program even runs). You cannot use the result of a function call or any other runtime value for a constant.
+
+#### Example
+
+```rust
+fn get_runtime_value() -> u32 {
+    // Imagine some complex logic here that depends on user input or a file.
+    // The result can't be known before running the program.
+    return 5 
+}
+
+fn main() {
+    // VALID: `max_size` is an immutable variable, but its value is
+    // determined by a function call when this line is executed.
+    let max_size = get_runtime_value();
+
+    // INVALID: This will not compile! The compiler needs to know the exact
+    // value of `MAX_SIZE` right now, but `get_runtime_value()` only runs later.
+    const MAX_SIZE: u32 = get_runtime_value(); 
+}
+```
+
+### Shadowing
+
+Shadowing is when you declare a new variable with the same name as a previous variable. The new variable "shadows" the old one, meaning the old variable is inaccessible from that point forward within the same scope. You do this using the `let` keyword again.
+
+```rust
+fn main() {
+    let x = 5;
+
+    // Here, we enter a new inner scope
+    {
+        // This 'x' shadows the outer 'x'. It's a completely new variable.
+        let x = x * 2; 
+        println!("The value of x in the inner scope is: {}", x); // Prints 10
+    }
+
+    // Back in the outer scope, the shadowing ends.
+    // The original 'x' is visible again.
+    println!("The value of x in the outer scope is: {}", x); // Prints 5
+}
+```
+
+#### Shadowing vs. Mutability (`mut`)
+
+- **Mutating**: `let mut x = 5; x = 10;`
+  - You are changing the value inside the same variable. The type must remain the same.
+- **Shadowing**: `let x = 5; let x = "ten";`
+  - This is shadowing. You are creating a brand new variable, also named x, that replaces the old one.
+  - Crucially, you can change the type of the variable when you shadow.
+
+```rust
+// Without shadowing
+fn main() {
+    let spaces_str = "   ";
+    let spaces_num = spaces_str.len();
+
+    println!("Found {} spaces.", spaces_num);
+}
+```
+
+```rust
+// WITH shadowing - you can reuse the name, which is often cleaner.
+fn main() {
+    let spaces = "   "; // spaces is a &str
+    let spaces = spaces.len(); // spaces is now shadowed and is a usize
+
+    println!("Found {} spaces.", spaces);
+}
+```

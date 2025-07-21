@@ -7,17 +7,22 @@ It contains extensive documentation, examples and best practices to help you bec
 
 Explore the `examples` directory for **interactive Rust** code examples, easily executable inside a **Docker DevContainer** within **Visual Studio Code**. This setup ensures a consistent and streamlined coding environment, ideal for learning and experimentation.
 
-# Guide Index 🗂️
+## Guide Index 🗂️
 
 **The following index contains categories with topics that are ready for visibility or completed.**  
 There is **more content incoming** so the categories will **not be visible here** until it is completed.    
 Want to see what topics are in todo? See the **index per category**.
 
-## Introduction
+### Introduction
 
 - [Introduction To Rust](./guide/introduction.md)
 - [Creating Your First Project](./guide/first_project.md)
 - [Variables & Data Types](./guide/variables_data_types.md)
+- [Control Flow](./guide/control_flow.md)
+
+### Containers
+
+- [Arrays](./guide/containers/arrays.md)
 
 ## References 📍
 
