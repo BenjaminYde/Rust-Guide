@@ -17,6 +17,7 @@ Want to see what topics are in todo? See the **index per category**.
 
 - [Introduction To Rust](./guide/introduction.md)
 - [Creating Your First Project](./guide/first_project.md)
+- [Variables & Data Types](./guide/variables_data_types.md)
 
 ## References 📍
 
